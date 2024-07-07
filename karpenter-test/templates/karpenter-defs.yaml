@@ -6,12 +6,22 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
   namespace: argocd
   labels:
-    environment: asfafasf
+    environment: afsafasf
 spec:
   project: default
   source:
     repoURL: https://github.com/AmericaBurger/testing.git
     path: karpenter
+    helm:
+      valuesObject:
+        instanceProfile: karpenter-role
+        classes:
+          - ami: ami-12487912903da
+            name: cpu-node-class
+        tags:
+          env: frodo
+          Environment: frodo
+          project: chemistry42
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
