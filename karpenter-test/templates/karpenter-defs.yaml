@@ -15,7 +15,7 @@ spec:
     helm:
       valuesObject:
         karpenter.instanceProfile: karpenter-role
-          karpenter.ami_id: "ami-afasfsda"
+          karpenter.ami_id: "ami-afasfsasdda"
           karpenter.subnet_selector: "fasfasdfsad: aafasfasf"
           karpenter.security_group_selector: "asdafasf: asdasdasd"
           karpenter.instance_category: ["c"]
