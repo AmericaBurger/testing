@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for Karpenter crd resources
+name: karpenter-defs
+version: 0.0.1
