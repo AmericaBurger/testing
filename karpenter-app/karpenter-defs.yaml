@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: karpenter-defs
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  namespace: argocd
+  labels:
+    environment: {{ .Values.common.host }}
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/AmericaBurger/testing.git
+    path: karpenter-defs
+    # targetRevision: {{ .Values.targetRevision }}
+    # helm:
+    #   valuesObject:
+    #     instanceProfile: {{ .Values.karpenter.instance_profile }}
+    #     classes:
+    #       - ami: {{ .Values.karpenter.cpu_ami }}
+    #         name: cpu-node-class
+    #     tags:
+    #       env: frodo
+    #       Environment: frodo
+    #       project: chemistry42
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

@@ -1,0 +1,61 @@
+---
+apiVersion: karpenter.sh/v1beta1
+kind: NodePool
+metadata:
+  name: default
+spec:
+  template:
+    spec:
+      requirements:
+        - key: kubernetes.io/arch
+          operator: In
+          values: ["amd64"]
+        - key: kubernetes.io/os
+          operator: In
+          values: ["linux"]
+        - key: karpenter.sh/capacity-type
+          operator: In
+          values: ["on-demand"]
+        - key: karpenter.k8s.aws/instance-category
+          operator: In
+          values: {{ .Values.karpenter.instance_category}}
+        - key: karpenter.k8s.aws/instance-generation
+          operator: Gt
+          values: ["2"]
+      nodeClassRef:
+        apiVersion: karpenter.k8s.aws/v1beta1
+        kind: EC2NodeClass
+        name: default
+  limits:
+    cpu: 1000
+  disruption:
+    consolidationPolicy: WhenUnderutilized
+    expireAfter: 720h
+---
+apiVersion: karpenter.k8s.aws/v1beta1
+kind: EC2NodeClass
+metadata:
+  name: default
+spec:
+  user_data: |
+    #!/bin/bash
+    set -o xtrace
+    echo 300 > /proc/sys/net/ipv4/tcp_keepalive_time
+    echo 90 > /proc/sys/net/ipv4/tcp_keepalive_probes
+  blockDeviceMappings:
+    - deviceName: /dev/xvda
+      ebs:
+        volumeSize: 40Gi
+        volumeType: gp3
+        deleteOnTermination: true
+        throughput: 125
+  instanceProfile: karpenter-controller
+  # amiFamily: AL2 # Amazon Linux 2
+  amiSelectorTerms:
+    - id: {{ .Values.karpenter.ami_id }}
+  subnetSelectorTerms:
+    - tags:
+        Name: {{ .Values.karpenter.subnet_selector}}
+  securityGroupSelectorTerms:
+    - tags:
+        Name: {{ .Values.karpenter.security_group_selector}}
