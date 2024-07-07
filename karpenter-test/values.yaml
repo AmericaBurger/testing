@@ -2,34 +2,11 @@ instanceProfile:
 classes:
   - ami: ami-04777
     name: cpu-node-class
-  - ami: ami-55464
-    name: gpu-node-class
 pools:
-  - name: cpu-spot
-    nodeClass: cpu-node-class
-    instCategory: ['"c"']
-    instCpu: ['"16", "32", "48"']
-    instHypervisor: ['"nitro"']
-    instGeneration: ['"3"']
-    capacityType: ['"spot"']
   - name: cpu-ondemand
     nodeClass: cpu-node-class
     instCategory: ['"c"']
     instCpu: ['"16", "32", "48"']
-    instHypervisor: ['"nitro"']
-    instGeneration: ['"3"']
-    capacityType: ['"on_demand"']
-  - name: gpu-spot
-    nodeClass: gpu-node-class
-    instCategory: ['"g4dn"']
-    instCpu: ['"16", "36", "48"']
-    instHypervisor: ['"nitro"']
-    instGeneration: ['"3"']
-    capacityType: ['"spot"']
-  - name: gpu-ondemand
-    nodeClass: gpu-node-class
-    instCategory: ['"g4dn"']
-    instCpu: ['"16", "36", "48"']
     instHypervisor: ['"nitro"']
     instGeneration: ['"3"']
     capacityType: ['"on_demand"']
