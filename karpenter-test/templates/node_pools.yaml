@@ -1,17 +1,17 @@
-{{- range $pool := .Values.pools }}
+# {{- range $pool := .Values.pools }}
 apiVersion: karpenter.sh/v1beta1
 kind: NodePool
 metadata:
-  name: {{ $pool.name }}
+  name: {{ .Values.pool.name }}
 spec:
   template:
     metadata:
       labels:
-        component: {{ $pool.name }}
+        component: {{ .Values.pool.name }}
       annotations: {}
     spec:
       nodeClassRef:
-        name: {{ $pool.nodeClass }}
+        name: {{ .Values.pool.nodeClass }}
       taints:
       requirements:
         - key: "karpenter.k8s.aws/instance-category"
@@ -19,19 +19,19 @@ spec:
           values: ["c"] #{{ $pool.instCategory }}
         - key: "karpenter.k8s.aws/instance-cpu"
           operator: In
-          values: {{ $pool.instCpu }}
+          values: {{ .Values.pool.instCpu }}
         - key: "karpenter.k8s.aws/instance-hypervisor"
           operator: In
-          values: {{ $pool.instHypervisor }}
+          values: {{ .Values.pool.instHypervisor }}
         - key: "karpenter.k8s.aws/instance-generation"
           operator: Gt
-          values: {{ $pool.instGeneration }}
+          values: {{ .Values.pool.instGeneration }}
         - key: "kubernetes.io/arch"
           operator: In
           values: ["amd64"]
         - key: "karpenter.sh/capacity-type"
           operator: In
-          values: {{ $pool.capacityType }}
+          values: {{ .Values.pool.capacityType }}
   disruption:
     consolidationPolicy: WhenEmpty
     consolidateAfter: Never

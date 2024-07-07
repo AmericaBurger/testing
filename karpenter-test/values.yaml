@@ -3,7 +3,7 @@ classes:
   - ami: ami-04777
     name: cpu-node-class
 pools:
-  - name: cpu-ondemand
+    name: cpu-ondemand
     nodeClass: cpu-node-class
     instCategory: ["c"]
     instCpu: ["16", "32", "48"]
