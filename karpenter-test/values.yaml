@@ -2,8 +2,6 @@ instanceProfile:
 classes:
   - ami: ami-04777
     name: cpu-node-class
-  - ami: ami-55464
-    name: gpu-node-class
 pools:
   - name: cpu-ondemand
     nodeClass: cpu-node-class
