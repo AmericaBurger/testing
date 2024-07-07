@@ -11,3 +11,8 @@ pools:
     instGeneration: ['"3"']
     capacityType: ['"on_demand"']
 tags: {}
+karpenter:
+  ami_id: ""
+  subnet_selector: ""
+  security_group_selector: ""
+  instance_category: ""
