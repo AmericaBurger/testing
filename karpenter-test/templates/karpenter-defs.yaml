@@ -15,6 +15,12 @@ spec:
     helm:
       valuesObject:
         instanceProfile: karpenter-role
+        karpenter:
+          ami_id: '"ami-12345678"'
+          subnet_selector: '"fasfasdfsad: aafasfasf"'
+          security_group_selector: '"fasfasdfsad: aafasfasf"'
+          instance_category: ['"c"']
+          instance_profile: '"karpenter-profile-instance"'
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
