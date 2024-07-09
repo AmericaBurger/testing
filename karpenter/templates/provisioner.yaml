@@ -44,7 +44,7 @@ spec:
         volumeType: gp3
         deleteOnTermination: true
         throughput: 125
-  instanceProfile: karpenter-controller
+  instanceProfile: {{ .Values.karpenter.instance_profile }}
   amiFamily: AL2 # Amazon Linux 2
   amiSelectorTerms:
     - id: {{ .Values.karpenter.ami_id }}
