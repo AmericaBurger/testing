@@ -22,7 +22,7 @@ spec:
           instance_profile: '"karpenter-profile-instance"'
           instance_cpu: ['"16", "32", "48"']
           capacity_type: '"on_demand"'
-          instance_generation: ['"3"']
+          instance_generation: ['3']
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
