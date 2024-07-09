@@ -1,4 +1,4 @@
-instanceProfile:
+instanceProfile: karpenter-profile-instance
 classes:
   - ami: ami-04777
     name: cpu-node-class
