@@ -14,13 +14,7 @@ spec:
     path: karpenter
     helm:
       valuesObject:
-        karpenter:
-          instanceProfile: karpenter-role
-          ami_id: ami-afasfsasdda
-          subnet_selector: fasfasdfsad: aafasfasf
-          security_group_selector: asdafasf: asdasdasd
-          instance_category: ["c"]
-
+        instanceProfile: karpenter-role
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
