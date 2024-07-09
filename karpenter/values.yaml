@@ -1,10 +1,10 @@
 #### Provisioner Karpenter
 # ami-id for karpenter nodes.
 karpenter:
-  ami_id: ""
-  subnet_selector: ""
-  security_group_selector: ""
-  instance_category: ""
+  ami_id: ami-afasfsasdda
+  subnet_selector: '"fasfasdfsad: aafasfasf"'
+  security_group_selector: '"fasfasdfsad: aafasfasf"'
+  instance_category: '["c"]'
 # -- Overrides the chart's name.
 nameOverride: ""
 # -- Overrides the chart's computed fullname.
