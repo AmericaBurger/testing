@@ -6,6 +6,9 @@ karpenter:
   security_group_selector: ""
   instance_category: ""
   instance_profile: ""
+  instance_cpu: ""
+  capacity_type: ""
+  instance_generation: ""
 # -- Overrides the chart's name.
 nameOverride: ""
 # -- Overrides the chart's computed fullname.
