@@ -43,12 +43,28 @@ spec:
   weight: 10
 ---
 {{- end }}
----
+{{- range $class := .Values.classes }}
 apiVersion: karpenter.k8s.aws/v1beta1
 kind: EC2NodeClass
 metadata:
-  name: default
+  name: {{ $class.name }}
 spec:
+  amiFamily: AL2
+  subnetSelectorTerms:
+    - tags:
+        "karpenter.sh/discovery": {{ .Values.karpenter.subnet_selector}}
+        Environment: frodo
+  securityGroupSelectorTerms:
+    - tags:
+        "karpenter.sh/discovery": {{ .Values.karpenter.security_group_selector}}
+        Environment: frodo
+  instanceProfile: {{ $.Values.instanceProfile }}
+  amiSelectorTerms:
+    - id: {{ $class.ami }}
+{{- if $.Values.tags }}
+  tags:
+{{- toYaml $.Values.tags | nindent 4 }}
+{{- end }}
   blockDeviceMappings:
     - deviceName: /dev/xvda
       ebs:
@@ -56,13 +72,7 @@ spec:
         volumeType: gp3
         deleteOnTermination: true
         throughput: 125
-  instanceProfile: {{ .Values.karpenter.instance_profile }}
-  amiFamily: AL2 # Amazon Linux 2
-  amiSelectorTerms:
-    - id: {{ .Values.karpenter.ami_id }}
-  subnetSelectorTerms:
-    - tags:
-        Name: {{ .Values.karpenter.subnet_selector}}
-  securityGroupSelectorTerms:
-    - tags:
-        Name: {{ .Values.karpenter.security_group_selector}}
+
+  detailedMonitoring: false
+---
+{{- end }}
