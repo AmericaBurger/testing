@@ -37,11 +37,6 @@ kind: EC2NodeClass
 metadata:
   name: default
 spec:
-  user_data: |
-    #!/bin/bash
-    set -o xtrace
-    echo 300 > /proc/sys/net/ipv4/tcp_keepalive_time
-    echo 90 > /proc/sys/net/ipv4/tcp_keepalive_probes
   blockDeviceMappings:
     - deviceName: /dev/xvda
       ebs:
