@@ -18,7 +18,7 @@ spec:
           ami_id: '"ami-1234567899999"'
           subnet_selector: '"fasfasdfsad: aafasfasf"'
           security_group_selector: '"fasfasdfsad: aafasfasf"'
-          instance_category: ['"c"']
+          instance_category: ['"c", "r", "m"']
           instance_profile: '"karpenter-profile-instance"'
   destination:
     server: https://kubernetes.default.svc
