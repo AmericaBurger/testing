@@ -14,11 +14,12 @@ spec:
     path: karpenter
     helm:
       valuesObject:
-        karpenter.instanceProfile: karpenter-role
-          karpenter.ami_id: "ami-afasfsasdda"
-          karpenter.subnet_selector: "fasfasdfsad: aafasfasf"
-          karpenter.security_group_selector: "asdafasf: asdasdasd"
-          karpenter.instance_category: ["c"]
+        karpenter:
+          instanceProfile: karpenter-role
+          ami_id: "ami-afasfsasdda"
+          subnet_selector: "fasfasdfsad: aafasfasf"
+          security_group_selector: "asdafasf: asdasdasd"
+          instance_category: ["c"]
 
   destination:
     server: https://kubernetes.default.svc
