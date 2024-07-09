@@ -5,7 +5,7 @@ classes:
 pools:
     name: cpu-ondemand
     nodeClass: cpu-node-class
-    instCategory: ["c"]
+    instCategory: ['"c"']
     instCpu: ["16", "32", "48"]
     instHypervisor: ['"nitro"']
     instGeneration: ['"3"']
