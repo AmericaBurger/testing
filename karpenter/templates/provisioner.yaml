@@ -50,7 +50,7 @@ spec:
         deleteOnTermination: true
         throughput: 125
   instanceProfile: karpenter-controller
-  # amiFamily: AL2 # Amazon Linux 2
+  amiFamily: AL2 # Amazon Linux 2
   amiSelectorTerms:
     - id: {{ .Values.karpenter.ami_id }}
   subnetSelectorTerms:
