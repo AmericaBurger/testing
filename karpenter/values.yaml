@@ -1,7 +1,7 @@
 #### Provisioner Karpenter
 # ami-id for karpenter nodes.
 karpenter:
-  ami_id: ami-afasfsasdda
+  ami_id: '"ami-12345678"'
   subnet_selector: '"fasfasdfsad: aafasfasf"'
   security_group_selector: '"fasfasdfsad: aafasfasf"'
   instance_category: ['"c"']
