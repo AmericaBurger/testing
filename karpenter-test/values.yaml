@@ -16,3 +16,6 @@ karpenter:
   security_group_selector: ""
   instance_category: ""
   instance_profile: ""
+  instance_cpu: ""
+  capacity_type: ""
+  instance_generation: ""
