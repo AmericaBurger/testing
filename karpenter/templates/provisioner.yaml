@@ -1,39 +1,48 @@
 ---
+{{- range $pool := .Values.pools }}
 apiVersion: karpenter.sh/v1beta1
 kind: NodePool
 metadata:
-  name: default
+  name: {{ $pool.name }}
 spec:
   template:
+    metadata:
+      labels:
+        component: {{ $pool.name }}
+      annotations: {}
     spec:
+      nodeClassRef:
+        name: {{ $pool.nodeClass }}
+      taints:
       requirements:
-        - key: kubernetes.io/arch
+        - key: "karpenter.k8s.aws/instance-category"
           operator: In
-          values: ["amd64"]
+          values: {{ $pool.instCategory }}
         - key: "karpenter.k8s.aws/instance-cpu"
           operator: In
-          values: {{ .Values.karpenter.instance_cpu }}
-        - key: kubernetes.io/os
+          values: {{ $pool.instCpu }}
+        - key: "karpenter.k8s.aws/instance-hypervisor"
           operator: In
-          values: ["linux"]
-        - key: karpenter.sh/capacity-type
-          operator: In
-          values: {{ .Values.karpenter.capacity_type }}
-        - key: karpenter.k8s.aws/instance-category
-          operator: In
-          values: {{ .Values.karpenter.instance_category}}
-        - key: karpenter.k8s.aws/instance-generation
+          values: {{ $pool.instHypervisor }}
+        - key: "karpenter.k8s.aws/instance-generation"
           operator: Gt
-          values: ["3"]
-      nodeClassRef:
-        apiVersion: karpenter.k8s.aws/v1beta1
-        kind: EC2NodeClass
-        name: default
-  limits:
-    cpu: 1000
+          values: {{ $pool.instGeneration }}
+        - key: "kubernetes.io/arch"
+          operator: In
+          values: ["amd64"]
+        - key: "karpenter.sh/capacity-type"
+          operator: In
+          values: {{ $pool.capacityType }}
   disruption:
-    consolidationPolicy: WhenUnderutilized
-    expireAfter: 720h
+    consolidationPolicy: WhenEmpty
+    consolidateAfter: Never
+    expireAfter: 96h
+  limits:
+    cpu: "96"
+    memory: 10000Gi
+  weight: 10
+---
+{{- end }}
 ---
 apiVersion: karpenter.k8s.aws/v1beta1
 kind: EC2NodeClass
