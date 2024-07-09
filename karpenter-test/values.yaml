@@ -15,4 +15,4 @@ karpenter:
   subnet_selector: ""
   security_group_selector: ""
   instance_category: ""
-  instanceProfile: ""
+  instance_profile: ""
