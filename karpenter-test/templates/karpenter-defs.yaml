@@ -19,7 +19,7 @@ spec:
           subnet_selector: '"fasfasdfsad: aafasfasf"'
           security_group_selector: '"fasfasdfsad: aafasfasf"'
           instance_category: ['"c"']
-          instanceProfile: '"karpenter-profile-instance"'
+          instance_profile: '"karpenter-profile-instance"'
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
