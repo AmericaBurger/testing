@@ -16,9 +16,9 @@ spec:
       valuesObject:
         karpenter:
           instanceProfile: karpenter-role
-          ami_id: "ami-afasfsasdda"
-          subnet_selector: "fasfasdfsad: aafasfasf"
-          security_group_selector: "asdafasf: asdasdasd"
+          ami_id: ami-afasfsasdda
+          subnet_selector: fasfasdfsad: aafasfasf
+          security_group_selector: asdafasf: asdasdasd
           instance_category: ["c"]
 
   destination:
