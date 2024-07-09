@@ -1,5 +1,14 @@
 #### Provisioner Karpenter
 # ami-id for karpenter nodes.
+pools:
+  - name: cpu-ondemand
+    nodeClass: cpu-node-class
+    instCategory: ['"c"']
+    instCpu: ['"16", "32", "48"']
+    instHypervisor: ['"nitro"']
+    instGeneration: ['"3"']
+    capacityType: ['"on_demand"']
+tags: {}
 karpenter:
   ami_id: ""
   subnet_selector: ""
