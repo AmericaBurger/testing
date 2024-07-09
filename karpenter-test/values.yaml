@@ -11,8 +11,8 @@ pools:
     capacityType: ['"on_demand"']
 tags: {}
 karpenter:
-  ami_id: ami-048273
-  subnet_selector: '"fasfasdfsad: aafasfasf"'
-  security_group_selector: '"fasfasdfsad: aafasfasf"'
-  instance_category: '["c"]'
-  instanceProfile: karpenter-profile-instance
+  ami_id: ""
+  subnet_selector: ""
+  security_group_selector: ""
+  instance_category: ""
+  instanceProfile: ""
