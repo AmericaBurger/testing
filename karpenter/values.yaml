@@ -5,6 +5,7 @@ karpenter:
   subnet_selector: '"fasfasdfsad: aafasfasf"'
   security_group_selector: '"fasfasdfsad: aafasfasf"'
   instance_category: ['"c"']
+  instance_profile: '"karpenter-profile-instance"'
 # -- Overrides the chart's name.
 nameOverride: ""
 # -- Overrides the chart's computed fullname.
