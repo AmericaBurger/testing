@@ -1,7 +1,7 @@
 #### Provisioner Karpenter
 # ami-id for karpenter nodes.
 classes:
-  - ami: ami-04777
+  - ami: ami-062ce1f7407168d2f
     name: cpu-node-class
 pools:
   - name: cpu-ondemand
