@@ -52,10 +52,10 @@ spec:
   amiFamily: AL2
   subnetSelectorTerms:
     - tags:
-        "karpenter.sh/discovery": "testing-private-karpenter.sh"
+        "karpenter.sh/discovery": {{ $.Values.karpenter.subnet_selector }}
   securityGroupSelectorTerms:
     - tags:
-        "karpenter.sh/discovery": "testing-private-karpenter.sh"
+        "karpenter.sh/discovery": {{ $.Values.karpenter.security_group_selector }}
   instanceProfile: {{ $.Values.karpenter.instance_profile }}
   amiSelectorTerms:
     - id: {{ $class.ami }}
