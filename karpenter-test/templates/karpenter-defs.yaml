@@ -14,7 +14,6 @@ spec:
     path: karpenter
     helm:
       valuesObject:
-        instance_profile: "karpenter-profile-instance"
         settings:
           clusterName: "testing-eks-cluster"
         serviceAccount:
@@ -24,6 +23,7 @@ spec:
         karpenter:
           subnet_selector: '"testing-private-karpenter.sh"'
           security_group_selector: '"testing-private-karpenter.sh"'
+          instance_profile: '"karpenter-controller"'
   destination:
     server: https://kubernetes.default.svc
     namespace: karpenter
