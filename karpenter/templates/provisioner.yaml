@@ -53,11 +53,9 @@ spec:
   subnetSelectorTerms:
     - tags:
         "karpenter.sh/discovery": {{ .Values.karpenter.subnet_selector}}
-        Environment: frodo
   securityGroupSelectorTerms:
     - tags:
         "karpenter.sh/discovery": {{ .Values.karpenter.security_group_selector}}
-        Environment: frodo
   instanceProfile: {{ $.Values.instanceProfile }}
   amiSelectorTerms:
     - id: {{ $class.ami }}
