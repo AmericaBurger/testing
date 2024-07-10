@@ -17,6 +17,7 @@ spec:
         settings:
           clusterName: "testing-eks-cluster"
         serviceAccount:
+            name: "karpenter"
             annotations:
               eks.amazonaws.com/role-arn: "arn:aws:iam::312713324602:role/karpenter-role"
         karpenter:
