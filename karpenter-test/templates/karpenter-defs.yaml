@@ -14,6 +14,9 @@ spec:
     path: karpenter
     helm:
       valuesObject:
+        serviceAccount:
+            annotations:
+              eks.amazonaws.com/role-arn: "arn:aws:iam::312713324602:role/karpenter-role"
         karpenter:
           ami_id: '"ami-062ce1f7407168d2f"'
           subnet_selector: '"karpenter.sh/discovery: testing-private-karpenter.sh"'
