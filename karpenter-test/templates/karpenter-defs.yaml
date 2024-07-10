@@ -25,7 +25,7 @@ spec:
           subnet_selector: '"testing-private-karpenter.sh"'
           security_group_selector: '"testing-private-karpenter.sh"'
           instance_category: ['"c", "r", "m"']
-          instance_profile: '"karpenter-instance-profile"'
+          instance_profile: '"karpenter-controller"'
           instance_cpu: ['"16", "32", "48"']
           capacity_type: '"on_demand"'
   destination:
