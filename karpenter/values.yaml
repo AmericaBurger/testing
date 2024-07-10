@@ -7,7 +7,7 @@ pools:
   - name: cpu-ondemand
     nodeClass: cpu-node-class
     instCategory: ['"c", "r", "m"']
-    instCpu: ['"16", "32", "48"']
+    instCpu: ['"4", "8", "16", "32", "48"']
     instHypervisor: ['"nitro"']
     instGeneration: ['"3"']
     capacityType: ['"on_demand"']
