@@ -56,7 +56,7 @@ spec:
   securityGroupSelectorTerms:
     - tags:
         "karpenter.sh/discovery": "testing-private-karpenter.sh"
-  instanceProfile: {{ $.Values.instanceProfile }}
+  instanceProfile: {{ $.Values.karpenter.instance_profile }}
   amiSelectorTerms:
     - id: {{ $class.ami }}
 {{- if $.Values.tags }}
