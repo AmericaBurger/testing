@@ -9,7 +9,7 @@ pools:
     instCategory: ['"c", "r", "m"']
     instCpu: ['"4", "8", "16", "32", "48"']
     instHypervisor: ['"nitro"']
-    instGeneration: ['"2"']
+    instGeneration: ['"3"']
     capacityType: ['"on_demand"']
 tags: {}
 karpenter:
