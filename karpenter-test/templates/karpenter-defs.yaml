@@ -14,6 +14,8 @@ spec:
     path: karpenter
     helm:
       valuesObject:
+        settings:
+          clusterName: "testing-eks-cluster"
         serviceAccount:
             annotations:
               eks.amazonaws.com/role-arn: "arn:aws:iam::312713324602:role/karpenter-role"
