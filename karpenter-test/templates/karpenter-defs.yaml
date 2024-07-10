@@ -27,7 +27,7 @@ spec:
           capacity_type: '"on_demand"'
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: karpenter
   syncPolicy:
     automated:
       selfHeal: true
