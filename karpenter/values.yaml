@@ -13,6 +13,7 @@ pools:
     capacityType: ['"on-demand"']
 tags: {}
 karpenter:
+  instance_profile: ""
   subnet_selector: ""
   security_group_selector: ""
 # -- Overrides the chart's name.
