@@ -22,8 +22,8 @@ spec:
               eks.amazonaws.com/role-arn: "arn:aws:iam::312713324602:role/karpenter-role"
         karpenter:
           ami_id: '"ami-062ce1f7407168d2f"'
-          subnet_selector: '"karpenter.sh/discovery: testing-private-karpenter.sh"'
-          security_group_selector: '"karpenter.sh/discovery: testing-private-karpenter.sh"'
+          subnet_selector: '"testing-private-karpenter.sh"'
+          security_group_selector: '"testing-private-karpenter.sh"'
           instance_category: ['"c", "r", "m"']
           instance_profile: '"karpenter-profile-instance"'
           instance_cpu: ['"16", "32", "48"']
