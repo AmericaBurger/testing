@@ -38,7 +38,7 @@ spec:
     consolidateAfter: Never
     expireAfter: 96h
   limits:
-    cpu: "96"
+    cpu: "1000"
     memory: 10000Gi
   weight: 10
 ---
