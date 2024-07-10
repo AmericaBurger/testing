@@ -10,7 +10,7 @@ pools:
     instCpu: ['"4", "8", "16", "32", "48"']
     instHypervisor: ['"nitro"']
     instGeneration: ['"3"']
-    capacityType: ['"on_demand"']
+    capacityType: ['"on-demand"']
 tags: {}
 karpenter:
   ami_id: ""
