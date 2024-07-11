@@ -21,6 +21,7 @@ spec:
             annotations:
               eks.amazonaws.com/role-arn: "arn:aws:iam::312713324602:role/karpenter-role"
         karpenter:
+          test: {{ .Values.karpenter.test }}
           subnet_selector: '"testing-private-karpenter.sh"'
           security_group_selector: '"testing-private-karpenter.sh"'
           instance_profile: '"karpenter-controller"'
