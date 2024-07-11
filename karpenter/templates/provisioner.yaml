@@ -53,7 +53,7 @@ spec:
   subnetSelectorTerms:
     {{ $.Values.karpenter.subnets_ids }}
   securityGroupSelectorTerms:
-    - id: {{ $.Values.karpenter.security_groups_id }}
+    - id: {{ $.Values.karpenter.security_group_id }}
   instanceProfile: {{ $.Values.karpenter.instance_profile }}
   amiSelectorTerms:
     - id: {{ $class.ami }}

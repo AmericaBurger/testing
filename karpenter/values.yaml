@@ -13,9 +13,6 @@ pools:
     capacityType: ['"on-demand"']
 tags: {}
 karpenter:
-  cluster_name: ""
-  serviceAccount_name: ""
-  role_arn: ""
   subnets_ids:
   security_groups_id: ""
   instance_profile: "" 
