@@ -24,6 +24,7 @@ spec:
           subnet_selector: {{ .Values.karpenter.subnets_ids }}
           security_group_selector: {{ .Values.karpenter.security_group_id }}
           instance_profile: {{ .Values.karpenter.instance_profile }}
+          serviceAccount_name: {{ .Values.karpenter.serviceAccount_name }}
   destination:
     server: https://kubernetes.default.svc
     namespace: karpenter
