@@ -51,11 +51,9 @@ metadata:
 spec:
   amiFamily: AL2
   subnetSelectorTerms:
-    - tags:
-        "karpenter.sh/discovery": {{ $.Values.karpenter.subnet_selector }}
+    {{ $.Values.karpenter.subnets_ids }}
   securityGroupSelectorTerms:
-    - tags:
-        "karpenter.sh/discovery": {{ $.Values.karpenter.security_group_selector }}
+    - id: {{ $.Values.karpenter.security_groups_id }}
   instanceProfile: {{ $.Values.karpenter.instance_profile }}
   amiSelectorTerms:
     - id: {{ $class.ami }}
