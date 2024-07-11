@@ -17,9 +17,9 @@ spec:
         settings:
           clusterName: "testing-eks-cluster"
         serviceAccount:
-            name: "karpenter"
+            name: {{ .Values.karpenter.serviceAccount_name }}
             annotations:
-              eks.amazonaws.com/role-arn: "arn:aws:iam::312713324602:role/karpenter-role"
+              eks.amazonaws.com/role-arn: {{ .Values.karpenter.role_arn }}
         karpenter:
           subnet_selector: '"testing-private-karpenter.sh"'
           security_group_selector: '"testing-private-karpenter.sh"'
