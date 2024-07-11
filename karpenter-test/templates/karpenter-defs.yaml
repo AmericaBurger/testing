@@ -15,7 +15,7 @@ spec:
     helm:
       valuesObject:
         settings:
-          clusterName: "testing-eks-cluster"
+          clusterName: {{ .Values.karpenter.cluster_name }}
         serviceAccount:
             name: {{ .Values.karpenter.serviceAccount_name }}
             annotations:
