@@ -13,9 +13,12 @@ pools:
     capacityType: ['"on-demand"']
 tags: {}
 karpenter:
-  instance_profile: ""
-  subnet_selector: ""
-  security_group_selector: ""
+  cluster_name: ""
+  serviceAccount_name: ""
+  role_arn: ""
+  subnets_ids:
+  security_groups_id: ""
+  instance_profile: "" 
 # -- Overrides the chart's name.
 nameOverride: ""
 # -- Overrides the chart's computed fullname.
