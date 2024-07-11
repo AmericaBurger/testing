@@ -20,7 +20,7 @@ spec:
         serviceAccount:
             name: {{ .Values.serviceAccount.name }}
             annotations:
-              eks.amazonaws.com/role-arn: {{ .Values.serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn }}
+              eks.amazonaws.com/role-arn: {{ .Values.serviceAccount.role_arn }}
         karpenter:
           subnet_selector: '"testing-private-karpenter.sh"'
           security_group_selector: '"testing-private-karpenter.sh"'
