@@ -21,8 +21,8 @@ spec:
             annotations:
               eks.amazonaws.com/role-arn: {{ .Values.karpenter.role_arn }}
         karpenter:
-          subnet_selector: {{ .Values.karpenter.subnets_ids }}
-          security_group_selector: {{ .Values.karpenter.security_group_id }}
+          subnets_ids: {{ .Values.karpenter.subnets_ids }}
+          security_group_id: {{ .Values.karpenter.security_group_id }}
           instance_profile: {{ .Values.karpenter.instance_profile }}
           serviceAccount_name: {{ .Values.karpenter.serviceAccount_name }}
   destination:
