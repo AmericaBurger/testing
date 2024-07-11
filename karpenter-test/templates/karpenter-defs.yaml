@@ -21,8 +21,8 @@ spec:
             annotations:
               eks.amazonaws.com/role-arn: {{ .Values.karpenter.role_arn }}
         karpenter:
-          subnet_selector: '"testing-private-karpenter.sh"'
-          security_group_selector: '"testing-private-karpenter.sh"'
+          subnet_selector: {{ .Values.karpenter.subnet_tag }}
+          security_group_selector: {{ .Values.karpenter.security_group_tag }}
           instance_profile: {{ .Values.karpenter.instance_profile }}
   destination:
     server: https://kubernetes.default.svc

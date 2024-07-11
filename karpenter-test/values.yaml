@@ -15,8 +15,8 @@ karpenter:
   cluster_name: ""
   serviceAccount_name: ""
   role_arn: ""
-  subnets_ids:
-  security_groups_id: ""
+  subnet_tag:
+  security_groups_tag: ""
   instance_profile: "" 
 
 
