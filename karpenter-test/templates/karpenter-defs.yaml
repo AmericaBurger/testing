@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: karpenter-defs
+  name: karpenter
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   namespace: argocd
   labels:
-    environment: {{ .Values.common.environment }}
+    environment: development
 spec:
   project: default
   source:
@@ -15,15 +15,15 @@ spec:
     helm:
       valuesObject:
         settings:
-          clusterName: {{ .Values.karpenter.cluster_name }}
+          clusterName: "testing-eks-cluster"
         serviceAccount:
-            name: {{ .Values.karpenter.serviceAccount_name }}
+            name: "karpenter"
             annotations:
-              eks.amazonaws.com/role-arn: {{ .Values.karpenter.role_arn }}
+              eks.amazonaws.com/role-arn: "arn:aws:iam::312713324602:role/karpenter-role"
         karpenter:
-          subnet_selector: {{ .Values.karpenter.subnet_ids }}
-          security_group_selector: {{ .Values.karpenter.security_group_id }}
-          instance_profile: {{ .Values.karpenter.instance_profile }}
+          subnet_selector: '"testing-private-karpenter.sh"'
+          security_group_selector: '"testing-private-karpenter.sh"'
+          instance_profile: '"karpenter-controller"'
   destination:
     server: https://kubernetes.default.svc
     namespace: karpenter

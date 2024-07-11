@@ -38,7 +38,7 @@ spec:
     consolidateAfter: Never
     expireAfter: 96h
   limits:
-    cpu: "10000"
+    cpu: "96"
     memory: 10000Gi
   weight: 10
 ---
@@ -51,9 +51,11 @@ metadata:
 spec:
   amiFamily: AL2
   subnetSelectorTerms:
-    {{ $.Values.karpenter.subnets_ids }}
+    - tags:
+        "karpenter.sh/discovery": {{ $.Values.karpenter.subnet_selector }}
   securityGroupSelectorTerms:
-    - id: {{ $.Values.karpenter.security_group_id }}
+    - tags:
+        "karpenter.sh/discovery": {{ $.Values.karpenter.security_group_selector }}
   instanceProfile: {{ $.Values.karpenter.instance_profile }}
   amiSelectorTerms:
     - id: {{ $class.ami }}
