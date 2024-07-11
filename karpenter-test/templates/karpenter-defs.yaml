@@ -6,7 +6,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
   namespace: argocd
   labels:
-    environment: afsafasf
+    environment: {{ .Values.common.environment }}
 spec:
   project: default
   source:
@@ -14,16 +14,15 @@ spec:
     path: karpenter
     helm:
       valuesObject:
-        test: {{ .Values.test }}
         settings:
-          clusterName: "testing-eks-cluster"
+          clusterName: {{ .Values.karpenter.cluster_name }}
         serviceAccount:
-            name: {{ .Values.serviceAccount.name }}
+            name: {{ .Values.karpenter.serviceAccount_name }}
             annotations:
-              eks.amazonaws.com/role-arn: {{ .Values.serviceAccount.role_arn }}
+              eks.amazonaws.com/role-arn: {{ .Values.karpenter.role_arn }}
         karpenter:
-          subnet_selector: '"testing-private-karpenter.sh"'
-          security_group_selector: '"testing-private-karpenter.sh"'
+          subnet_selector: {{ .Values.karpenter.subnet_ids }}
+          security_group_selector: {{ .values.karpenter.security_group_id }}
           instance_profile: {{ .Values.karpenter.instance_profile }}
   destination:
     server: https://kubernetes.default.svc
