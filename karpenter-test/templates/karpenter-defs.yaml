@@ -17,7 +17,6 @@ spec:
         settings:
           clusterName: {{ .Values.karpenter.cluster_name }}
         serviceAccount:
-            name: {{ .Values.karpenter.serviceAccount_name }}
             annotations:
               eks.amazonaws.com/role-arn: {{ .Values.karpenter.role_arn }}
         karpenter:
