@@ -23,7 +23,7 @@ spec:
                     - critical-workloads
                 - key: "karpenter.k8s.aws/instance-family"
                   operator: In
-                  values: ["m7a", "m6a", "m5", "m5a", "m4", "m6i", "m5n"
+                  values: ["m7a", "m6a", "m5", "m5a", "m4", "m6i", "m5n"]
       containers:
       - name: myapp
         image: nginx
