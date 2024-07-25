@@ -20,10 +20,10 @@ spec:
                 - key: role
                   operator: In
                   values:
-                    - critical-workloads
+                    - ingress-workloads
                 - key: "karpenter.k8s.aws/instance-family"
                   operator: In
-                  values: ["m7a", "m6a", "m5", "m5a", "m4", "m6i", "m5n"]
+                  values: ['"c7a", "c6a", "c5", "c5a", "r7a", "r6a", "r5", "r5a", "r4"']
       containers:
       - name: myapp
         image: nginx
