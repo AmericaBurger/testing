@@ -3,18 +3,6 @@ kind: Deployment
 metadata:
   name: myapp-deployment
 spec:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-            - key: role
-              operator: In
-              values:
-                - critical-workloads
-            - key: "karpenter.k8s.aws/instance-family"
-              operator: In
-              values: ["m7a", "m6a", "m5", "m5a", "m4", "m6i", "m5n"
   selector:
     matchLabels:
       app: myapp
